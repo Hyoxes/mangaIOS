@@ -13,6 +13,9 @@
 		B20F79D81D9C367900F40427 /* mangaDetails.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B20F79D61D9C367900F40427 /* mangaDetails.xcdatamodeld */; };
 		B20F79DA1D9C367900F40427 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B20F79D91D9C367900F40427 /* Assets.xcassets */; };
 		B20F79DD1D9C367900F40427 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B20F79DB1D9C367900F40427 /* LaunchScreen.storyboard */; };
+		B20F79E61D9C37FC00F40427 /* Manga+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20F79E41D9C37FC00F40427 /* Manga+CoreDataClass.swift */; };
+		B20F79E71D9C37FC00F40427 /* Manga+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20F79E51D9C37FC00F40427 /* Manga+CoreDataProperties.swift */; };
+		B20F79EB1D9C3C6A00F40427 /* MangaDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20F79EA1D9C3C6A00F40427 /* MangaDAO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		B20F79D91D9C367900F40427 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B20F79DC1D9C367900F40427 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B20F79DE1D9C367900F40427 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B20F79E41D9C37FC00F40427 /* Manga+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Manga+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B20F79E51D9C37FC00F40427 /* Manga+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Manga+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B20F79EA1D9C3C6A00F40427 /* MangaDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MangaDAO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,8 @@
 		B20F79CE1D9C367900F40427 /* mangaDetails */ = {
 			isa = PBXGroup;
 			children = (
+				B20F79E41D9C37FC00F40427 /* Manga+CoreDataClass.swift */,
+				B20F79E51D9C37FC00F40427 /* Manga+CoreDataProperties.swift */,
 				B20F79CF1D9C367900F40427 /* AppDelegate.swift */,
 				B20F79D11D9C367900F40427 /* ViewController.swift */,
 				B20F79D31D9C367900F40427 /* Main.storyboard */,
@@ -63,6 +71,7 @@
 				B20F79DB1D9C367900F40427 /* LaunchScreen.storyboard */,
 				B20F79DE1D9C367900F40427 /* Info.plist */,
 				B20F79D61D9C367900F40427 /* mangaDetails.xcdatamodeld */,
+				B20F79EA1D9C3C6A00F40427 /* MangaDAO.swift */,
 			);
 			path = mangaDetails;
 			sourceTree = "<group>";
@@ -139,7 +148,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B20F79E61D9C37FC00F40427 /* Manga+CoreDataClass.swift in Sources */,
 				B20F79D81D9C367900F40427 /* mangaDetails.xcdatamodeld in Sources */,
+				B20F79E71D9C37FC00F40427 /* Manga+CoreDataProperties.swift in Sources */,
+				B20F79EB1D9C3C6A00F40427 /* MangaDAO.swift in Sources */,
 				B20F79D21D9C367900F40427 /* ViewController.swift in Sources */,
 				B20F79D01D9C367900F40427 /* AppDelegate.swift in Sources */,
 			);

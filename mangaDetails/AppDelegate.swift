@@ -13,13 +13,61 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var context:NSManagedObjectContext?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let documentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let storageURL = documentURL.appendingPathComponent("mangaDetails")
+        
+        let modelURL = Bundle.main.url(forResource: "mangaDetails", withExtension: "momd")
+        
+        print("modelURL : \(modelURL)")
+        
+        let modelSchema = NSManagedObjectModel(contentsOf: modelURL!)
+        print("modelSchema : \(modelSchema)")
+        
+        let storeCoordinator = NSPersistentStoreCoordinator(managedObjectModel: modelSchema!)
+        
+        do{
+            try storeCoordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: storageURL, options: nil)
+            let context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+            context.persistentStoreCoordinator = storeCoordinator
+            self.context = context
+        } catch {
+            print("Error")
+        }
+        
+        //addNewManga(title: "One Piece", synopsis: "La grande aventure pirate", editor: "Glenat", author: "Eiichiro Oda")
+        displayManga()
+
         return true
     }
 
+    
+    func addNewManga(title:String, synopsis:String, editor: String, author: String) {
+        let m = NSEntityDescription.insertNewObject(forEntityName: "Manga", into: self.context!) as! Manga
+        
+        m.author = author
+        m.editor = editor
+        m.synopsis = synopsis
+        m.title = title
+        
+        try? self.context?.save()
+    }
+    
+    func displayManga() {
+        let request = NSFetchRequest<Manga>(entityName: "Manga")
+        let storeResult = try? self.context?.execute(request) as! NSAsynchronousFetchResult<Manga>
+        for m in (storeResult?.finalResult)!{
+            print ("\(m.title) \n\(m.author)      \(m.editor)\n\(m.synopsis)")
+        }
+    }
+    
+    
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
